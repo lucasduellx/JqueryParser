@@ -823,15 +823,7 @@ public class App {
         textao = textao.replaceAll("\\/\\/.*?\\n", "");
         textao = textao.replaceAll("\\n\\s*?\\n","");
         textao = textao.replaceAll("\n", "");
-        // Pattern pattern = Pattern.compile("(?i)\\b(function)\\b");
-        // Matcher matcher = pattern.matcher(textao);
-        // while (matcher.find()) {
-        //     System.out.println(matcher.group());
-        // } 
-        // for (String string : reservedWords) {
-        //     String regex = "(?i)\\b("+string+")\\b";
-        //     textao = textao.replaceAll(regex, "");
-        // }
+
         Scanner sc=new Scanner(textao);  
         while (sc.hasNext())   
         {  
@@ -839,20 +831,17 @@ public class App {
         outputbr.write(tokens);  
         }  
         sc.close();  
-        //System.out.println(textao);
-        //outputbr.write(textao);
 
         inputstream.close();
         outputbr.close();
 
         Map<String, List<Integer>> brackets = findBrackets();
-        brackets.forEach((k, v) -> System.out.println(String.format("key: %s | value: %s", k, v)));
+        brackets.forEach((k, v) -> System.out.println(String.format("Token: %s | Colunas: %s", k, v)));
 
         Map<String, List<Integer>> operators = findOperators();
-        operators.forEach((k, v) -> System.out.println(String.format("key: %s | value: %s", k, v)));
+        operators.forEach((k, v) -> System.out.println(String.format("Token: %s | Colunas: %s", k, v)));
 
         Map<String, List<Integer>> rWords = findReservedWord();
-        rWords.forEach((k, v) -> System.out.println(String.format("key: %s | value: %s", k, v)));
-        //System.out.println(brackets.get(";"));
+        rWords.forEach((k, v) -> System.out.println(String.format("Token: %s | Colunas: %s", k, v)));
     }
 }
