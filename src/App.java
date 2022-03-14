@@ -805,7 +805,7 @@ public class App {
 
     public static void main(String[] args) throws Exception {
         InputStream inputstream;
-        inputstream = new FileInputStream("jquery2.txt");
+        inputstream = new FileInputStream("jquery.txt");
         OutputStream os = new FileOutputStream("jquery3.txt");
         Writer wr = new OutputStreamWriter(os);
         BufferedWriter outputbr = new BufferedWriter(wr);
@@ -819,7 +819,7 @@ public class App {
             texto += linha.trim() + "\n";
             linha = br.readLine();
         }
-        String textao = texto.replaceAll("\\/\\*[\\s\\S]*\\*\\/","");
+        String textao = texto.replaceAll("\\/\\*[\\s\\S]*?\\*\\/","");
         textao = textao.replaceAll("\\/\\/.*?\\n", "");
         textao = textao.replaceAll("\\n\\s*?\\n","");
         textao = textao.replaceAll("\n", "");
@@ -853,5 +853,6 @@ public class App {
 
         Map<String, List<Integer>> rWords = findReservedWord();
         rWords.forEach((k, v) -> System.out.println(String.format("key: %s | value: %s", k, v)));
+        //System.out.println(brackets.get(";"));
     }
 }
